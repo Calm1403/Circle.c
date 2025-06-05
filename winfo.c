@@ -48,7 +48,7 @@ winfo_t* winfo_create(void)
     if ( (window_info = malloc(sizeof *window_info)) == NULL )
         return NULL;
 
-    // You could give a fuck about zeroing the padding of structure.
+    // You could give a fuck about zeroing the padding of a structure.
     *window_info = (winfo_t){ .ccols = 0, .crows = 0 }; 
 
     if ( winfo_get_terminal_dimensions(window_info) == 1 )
