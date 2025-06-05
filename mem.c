@@ -34,13 +34,14 @@ be other behaviours in the future (reall-
 oc behaviour, for e.g.). Hence why I don-
 t use the bool type.
 
-2. I know that malloc is implemented us-
-ing memory mapping functionality; it re-
-fers to the program's virtual memory ad-
-dress space, which means that memory is 
-represented congruently. Consequently I 
-should be able to use this to manage th-
-e memory that I allocate.
+2. I know that malloc (and calloc too I-
+'d imagine) is implemented using memory 
+mapping functionality; it refers to the
+program's virtual memory address space, 
+which means that memory is represented 
+congruently. Consequently I should be a-
+ble to use this to manage the memory th
+at I allocate quite nicely.
 
 3. The reason why I use ENOMEM for a de-
 allocation (when the specification stat-
