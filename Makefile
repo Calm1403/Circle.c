@@ -1,10 +1,12 @@
-files = main.o circle.o board.o winfo.o
 
-Circle: $(files)
-	$(CC) $^ -o Circle
+CFLAGS = -Wall -std=c99
+FILES = main.o circle.o board.o winfo.o
 
-$(files): %.o: %.c
-	$(CC) -c $< -o $@
+Circle: $(FILES)
+	$(CC) $(CFLAGS) $^ -o Circle
+
+$(FILES): %.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm *.o Circle
