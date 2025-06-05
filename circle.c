@@ -24,5 +24,5 @@ void draw_circle(board_t* B, const int R, const int D, const int C, const int ph
         B->data[(2 * y) * (R + 1) + x] = '@';
     }
 
-    printf(" |R: %i | D: %i | C: %i | PHI: %i |\n\x1b[38;5;%im%s\x1b[0m", R, D, C, phi, C, B->data);
+    printf("| R: %i | D: %i | C: %i | PHI: %i |\n\x1b[38;5;%im%s\x1b[0m", R, D, C, phi, C, B->data);
 }
