@@ -8,3 +8,6 @@ Pull requests:
 
 I'll happily accept commits to this project through pull requests if I find that they contribute something meaningful. If you commit optimisations or large scale change, a rough overview explaining your logic to the optimisation, or large scale change, while not strictly necessary, would be appreciated :)
 
+Compilation:
+
+Ensure that make is installed on your machine, and simply execute make in the directory.

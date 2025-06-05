@@ -4,7 +4,7 @@ Circle: $(files)
 	$(CC) $^ -o Circle
 
 $(files): %.o: %.c
-	$(CC) -c $^ -o $@
+	$(CC) -c $< -o $@
 
 clean:
 	rm *.o Circle
