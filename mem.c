@@ -1,9 +1,5 @@
 #include "mem.h"
 
-#include <errno.h>
-#include <stdlib.h>
-#include <stdio.h>
-
 void* obj_manager(const int behaviour, const size_t number, const size_t size, void** objs)
 {
     static void* allocation;
