@@ -1,42 +1,32 @@
 #include "mem.h"
 
-#include <stdbool.h>
 #include <errno.h>
 #include <stdlib.h>
+#include <stdio.h>
 
-// Multipurpose memory interface.
 void* obj_manager(const int behaviour, const size_t number, const size_t size, void** objs)
 {
-    static bool allocated;
-
-    // Allocate.
+    static void* allocation;
+    
     if ( behaviour == 1 )
     {
-        if ( allocated == true )
+        if ( allocation != 0 || (allocation = calloc(number, size)) == NULL )
             goto fail;
-        
-        allocated = true;
 
-        if ( (objs = calloc(number, size)) == NULL )
-            goto fail; 
-
-        return objs;
+        return ( *objs = allocation );
     }
 
-    // Deallocate.
-    if ( allocated == false )
+    if ( allocation == 0 )
         goto fail;
-    
-    allocated = false;
 
-    *objs = NULL;
+    free(allocation);
 
-    free(*objs);
+    allocation = 0; if ( objs != NULL ) *objs = NULL;
 
-    return NULL;
+    return *objs;
 fail:
     errno = ENOMEM;
-
+    
     return NULL;
 }
 
@@ -67,5 +57,5 @@ may be poor practice.
 overflow checking and initialisation; i-
 t's slightly slower, but that's fine be-
 cause you're not going to be calling th-
-is rapidly.        
+is rapidly.
 */
