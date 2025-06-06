@@ -10,4 +10,4 @@ I'll happily accept commits to this project through pull requests if I find that
 
 Compilation:
 
-Ensure that make is installed on your machine, execute make in the project directory, then run ./circle while providing it with parameters according to your circular desires.
+Ensure that make (as well as gcc) is installed on your machine, execute make in the project directory, then run ./circle while providing it with parameters according to your circular desires.
