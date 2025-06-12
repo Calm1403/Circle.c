@@ -56,7 +56,8 @@ sage).
 
 For behaviour == 0, a deallocation is i-
 n effect; the interface is much like fr-
-ee.
+ee (again, see formal parameter and ret-
+urn value usage).
 
 The behaviour isn't binary; there may be 
 other behaviours in the future (realloc 
