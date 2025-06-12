@@ -89,7 +89,6 @@ void* obj_manager(const int behaviour, const size_t number, const size_t size, v
     static void* allocation;
     
     // Calloc; allocation behaviour.
-    if ( behaviour == 1 )
     {
         // NOTE: The precedence of these operations should be noted; do some testing.
         if ( allocation != 0 || atexit(deallocate) != 0 || (allocation = calloc(number, size)) == NULL )
