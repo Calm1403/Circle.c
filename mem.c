@@ -95,8 +95,8 @@ void* obj_manager(const int behaviour, const size_t number, const size_t size, v
         if ( allocation != 0 || atexit(deallocate) != 0 || (allocation = calloc(number, size)) == NULL )
             return NULL;
 
-        if ( objs != NULL )
-            return ( *objs = allocation );
+        if ( objs != NULL ) 
+            *objs = allocation;
     
         return allocation;
     }
