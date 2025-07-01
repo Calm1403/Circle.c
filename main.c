@@ -6,13 +6,16 @@
 #include <string.h>
 #include <stdio.h>
 
-static unsigned compute_integer(const char* argv)
+static int compute_integer(const char* integer)
 {
-    unsigned int result = 0;
+    unsigned result = 0;
 
-    for ( int i = 0; i < strlen(argv); i++ )
-    {
-        result = (result * 10) + (int)(argv[i] - '0');
+    for ( int i = 0; i < strlen(integer); i++ )
+    {        
+        if ( (unsigned)integer[i] < '0' || (unsigned)integer[i] > '9' )
+            return -1;
+
+        result = (result * 10) + (unsigned)(integer[i] - '0');
     }
 
     return result;
