@@ -6,14 +6,14 @@
 #include <string.h>
 #include <stdio.h>
 
-static int compute_integer(const char* integer)
+static unsigned compute_integer(const char* integer)
 {
     unsigned result = 0;
 
     for ( int i = 0; i < strlen(integer); i++ )
     {        
         if ( (unsigned)integer[i] < '0' || (unsigned)integer[i] > '9' )
-            return -1;
+            return 0;
 
         result = (result * 10) + (unsigned)(integer[i] - '0');
     }
