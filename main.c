@@ -36,11 +36,10 @@ static int start_up(const char** argv)
     int phi = compute_integer(argv[4]);	     // Three space rotation.
 
     winfo_t* window_info; 
+    board_t* board;
     
     if ( (window_info = winfo_create()) == NULL )
         return 1;
-
-    board_t* board;
 
     if ( (board = board_create(2 * R, 2 * R, window_info)) == NULL ) 
     {
