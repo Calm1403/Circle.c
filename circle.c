@@ -4,27 +4,35 @@
 #include <math.h>
 #include <stdio.h>
 
-#define PI 3.14159265359
-
-void draw_circle(board_t* B, const int R, const int D, const int C, const int phi)
+void
+draw_circle(board_t* B, const int R, const int D, const int C, const int phi)
 {
-    double cos_phi = cos((phi * PI) / 180), rad_incr = (PI / D);
-    
-    for ( double theta_r = 0; theta_r < (2 * PI + rad_incr); theta_r  += rad_incr )
-    {
-        int y = R + (int)(round(R * sin(theta_r)));
+  double cos_phi = cos((phi * M_PI) / 180), rad_incr = (M_PI / D);
 
-        int x = R + (int)(round(R * cos(theta_r) * cos_phi));
+  for (double theta_r = 0; theta_r < (2 * M_PI + rad_incr); theta_r += rad_incr)
+  {
+    int y = R + (int)(round(R * sin(theta_r)));
 
-        // Increment x if the x in question is at a NEWL position; intuitive if you consider format of board_t. 
-	    x = x + (1 * ( x == R * 2 + 1 ));
+    int x = R + (int)(round(R * cos(theta_r) * cos_phi));
 
-        // NOTE: This is weird, elaborate logic that I pulled out of my ass, because I'm magic.
-	    
-        // NOTE: B->data[(2 * R + 1) * y + (x + y)] = '@' is algebraically equivelent to:
-        
-        B->data[(2 * y) * (R + 1) + x] = '@';
-    }
+    // Increment x if the x in question is at a NEWL position; intuitive if you
+    // consider format of board_t.
+    x = x + (1 * (x == R * 2 + 1));
 
-    printf("| R: %i | D: %i | C: %i | PHI: %i |\n\x1b[38;5;%im%s\x1b[0m", R, D, C, phi, C, B->data);
+    // NOTE: This is weird, elaborate logic that I pulled out of my ass, because
+    // I'm magic.
+
+    // NOTE: B->data[(2 * R + 1) * y + (x + y)] = '@' is algebraically
+    // equivelent to:
+
+    B->data[(2 * y) * (R + 1) + x] = '@';
+  }
+
+  printf("| R: %i | D: %i | C: %i | PHI: %i |\n\x1b[38;5;%im%s\x1b[0m",
+         R,
+         D,
+         C,
+         phi,
+         C,
+         B->data);
 }
