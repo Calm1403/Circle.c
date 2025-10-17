@@ -4,11 +4,13 @@
 #include <math.h>
 #include <stdio.h>
 
+#define PI 3.14159265359
+
 void draw_circle(board_t* B, const int R, const int D, const int C, const int phi)
 {
-    double cos_phi = cos((phi * M_PI) / 180), rad_incr = (M_PI / D);
+    double cos_phi = cos((phi * PI) / 180), rad_incr = (PI / D);
     
-    for ( double theta_r = 0; theta_r < (2 * M_PI + rad_incr); theta_r  += rad_incr )
+    for ( double theta_r = 0; theta_r < (2 * PI + rad_incr); theta_r  += rad_incr )
     {
         int y = R + (int)(round(R * sin(theta_r)));
 
