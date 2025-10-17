@@ -1,12 +1,6 @@
 #ifndef CIRCLE_H
 #define CIRCLE_H
 
-#ifdef __linux__
-#ifndef __USE_MISC
-#define __USE_MISC
-#endif
-#endif
-
 #ifdef _WIN32
 #ifndef _USE_MATH_DEFINES
 #define _USE_MATH_DEFINES
