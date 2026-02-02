@@ -23,8 +23,6 @@ board_create(const int width,
 
   memset(board->data, ' ', sizeof(char) * board->size);
 
-  // NOTE: Adding one continously doesn't actually do much to the runtime
-  // (ignoring the occational arithmetic overflow).
   for (int i = 0; i < height; i++)
   {
     // NOTE: This is a formula to get the zero index position of the end of the
